@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <input type="text" v-model="msg">
+        <p>hello {{msg | date("YYYY-M-DD")}}</p>
+   </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.js"></script>
+    <script>
+        /*
+        过滤器是要将要显示的数据进行特定的格式化后再进行显示
+        没有改变原来的数据而是产生了新的数据
+        */
+        Vue.filter('date',function(value,form) {//这里的value指的是元数据  date表示的是过滤器的名称
+            return moment(value).format(form || 'YYYY-M-DD H:mm:ss')
+        } )
+        new Vue({
+            el:'#test',
+            data() {
+                return {
+                    msg:Date.now()
+                }
+            },
+            // mounted() {
+            //     setTimeout(()=>{
+            //         this.msg='jian'
+            //     },2000)
+            // },
+        })
+    </script>
+</body>
+</html>

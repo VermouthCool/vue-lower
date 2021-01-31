@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <button @click="test1">456</button>
+        <button @click="test2(123)">456</button>
+        <button @click="test3($event,123)">456</button>
+        <!-- 
+            事件修饰符：
+                阻止事件的默认行为
+                停止事件的冒泡
+         -->
+        <a href="https://www.baidu.com" @click.prevent="test4">asdsadsadsa</a>
+        <div @click="jian1">
+            <div @click.stop='jian2'></div>
+        </div>
+        <div @click.once="jain"></div>
+        <input type="text" @keyup.13="jian"> 
+        <!-- 或者直接写enter就好 -->
+   </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#test',
+            data() {
+                return {
+                    
+                }
+            },
+            methods: {
+                test1(e){
+                    alert(e.target.innerHTML)
+                },
+                test2(e){
+                    alert(e)//e为此时传递的123
+                },
+                test3(a,b){
+                    alert(a.target.innerHTML + '----------'+b)
+                },
+                test4(e){
+
+                }
+            },
+        })
+    </script>
+</body>
+</html>

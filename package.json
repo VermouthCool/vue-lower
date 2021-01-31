@@ -1,0 +1,16 @@
+{
+  "name": "jian",
+  "version": "1.0.0",
+  "description": "按照需求逐渐引入插件；简单易用；广泛灵活\r     构建是指对源代码进行操作 形成浏览器直接高效运行的代码\r     适合移动端和PC端\r     它本身只关注UI  可以引入其他vue插件和第三方插件开发项目\r     组件的data必须是函数  不然如果是对象的话每个人绑定的都是同一个 会乱的\r     保证组件的多个实例都有自己的data\r     ```\r     Vue.component('jian',{//组件名是建\r         data(){\r             return{",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mint-ui": "^2.2.13",
+    "vuex": "^3.6.2"
+  }
+}

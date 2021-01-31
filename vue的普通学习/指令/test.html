@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <input type="text" v-upper-text="msg">
+        <p v-upper-text="msg"></p>
+   </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script>
+        /*
+        v-html:innerHTML
+        v-text:innerText
+        v-modal:双向数据绑定
+        v-bind:强制绑定解析表达式
+        */
+       //自定义全局指令
+       Vue.directive('upper-text', function (el,binding) {
+           //el:是指令所在的DOM对象
+           //binding是指令相关的操作的信息
+           el.innerText=binding.value.toUpperCase();
+       })
+       new Vue({
+           el:'#test',
+           data() {
+               return {
+                   msg:'jiange'
+               }
+           },
+           //自定义局部指令
+           directives:{
+            "lower-text"(el,binding){
+                //代表的东西一样
+            }
+           }
+       })
+       /*
+       区别：
+       局部指令只对当前的vm有限制
+       */
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <div id="root">
+        <p :class="myClass"></p>
+        <p :class="{class1:has1,class:has2}"></p>
+        <p :class="[class1,class2]"></p>
+        <p :style="{color:'balck',fontSize}"></p>
+        <button @click="update"></button>
+    </div>
+    <script>
+        new Vue({
+            data() {
+                return {
+                    maClass:'class1',
+                    has1:true,
+                    has2:false,
+                    fontSize:'10px'
+                }
+            },
+            methods: {
+                update(){
+
+                }
+            },
+        }).$mount('#root')
+    </script>
+</body>
+</html>

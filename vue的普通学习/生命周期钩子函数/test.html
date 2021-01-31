@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <button @click="destroy">jian</button>
+        <p v-show='isShow'>建哥最帅</p>
+   </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#test',
+            data() {
+                return {
+                    isShow:true
+                }
+            },
+            beforeDestroy() {
+                clearInterval(this.a);
+            },
+            methods: {
+                destroy(){
+                    this.$destroy()//销毁vm对象
+                }
+            },
+            mounted() {
+                this.a = setInterval(()=>{
+                    this.isShow=!this.isShow
+                },1000)
+            },
+        })
+        /*
+        1.new
+        2.init event and lifecycle
+        3.beforeCreate 这个create指的是vm
+        4.数据代理
+        5.created
+        5-1:将el的内容解析后代替掉原来的内容
+        6.beforeMount
+        7.mounted
+        8.beforeUpdate  旧的页面的数据
+        9.updated
+        10.beforeDestroy
+        11.destroyed
+        */
+    </script>
+</body>
+</html>

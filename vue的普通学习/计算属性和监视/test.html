@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <div id="root">
+        <input type="text" v-model="firstname"><br>
+        <input type="text" v-model="lastname"><br>
+        <input type="text" placeholder="fullname" v-model="fullname"><br>
+    </div>
+    <script>
+        // Object.defineProperty(obj,name,{}) 用于设置或修改对象的值
+        let a = {
+            firstName:'A',
+            lastName:'b'
+        }
+        Object.defineProperty(a,"fullname",{//属性描述符
+        /*
+        当读取属性值自动调用
+        */
+            get(){
+                //必须要有返回值
+                return this.firstName+'-'+this.lastName
+            },
+            //当属性值修改了后调用,用来监视属性值的变化
+            set(value){//必须要接受一个参数
+                console.log(value);
+            }
+        })
+        /*
+        关于回调函数的三个问题
+        1.函数什么时候执行
+        2.用来干什么
+        3.this是谁
+        */
+        // console.log(a.fullname);
+        // a.lastName='B';
+        // console.log(a.fullname);
+        Vue.config.productionTip = false
+        // var vm = new Vue({
+        //   el:'#jian',
+        //   data:{
+        //     firstName:'A',
+        //     lastName:'b',
+        //     //计算
+        //     computed: {
+        //         fullname(){
+        //             return this.lastName+'-'+this.firstName
+        //             //vue控制的所有的回调函数的this都是vm/组件对象
+        //             //数据代理
+        //         },
+        //         fullname2:{
+        //             get(){
+        //                 return 
+        //             },
+        //             set(value){
+
+        //             }
+        //         }
+        //     },
+        //   }  ,
+        //   //监视:
+        //   watch:{
+        //       firstName(value){
+        //           //当这个属性值发生改变时调用
+        //         this.firstName = value + 'lastname'
+        //       }
+        //   }
+        // })
+        // vm.$watch('lastname',)
+        /*
+        计算属性有缓存
+        */
+        var vm = new Vue({
+            el:'#root',
+            data() {
+                return {
+                    firstname:'李',
+                    lastname:'子建'
+                }
+            },
+            computed:{
+                fullname:{
+                    get(){
+                        return this.firstname + '-' + this.lastname;
+                    },
+                    set(value){
+                        var a = value.split('-');
+                        this.firstname = a[0];
+                        this.lastname = a[1];
+                    }
+                }
+            }  
+        })
+        vm.$watch('fullname',function (value) {
+            console.log(this);
+        })
+    </script>
+</body>
+</html>

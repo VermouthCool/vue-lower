@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="jian" action="" @submit.prevent="jian">
+        <!-- <input type="text">
+        <input type="radio" name="jian" id="" value="sda">
+        <input type="checkbox" name="爱好" id="" value="建"><input type="checkbox" name="爱好" id="" value="哥"> -->
+        <!-- 
+            jian=sda&爱好=建&爱好=哥
+         -->
+         <select v-model="like" id="">
+             <!-- 
+                 不会给添加name属性
+                    
+              -->
+             <option value="laiba">dasdsad</option>
+         </select>
+        <button></button>
+    </form>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#jian",
+            data() {
+                return {
+                    like:'laiba'
+                }
+            },
+            methods: {
+                jian(){
+
+                }
+            },
+        })
+    </script>
+</body>
+</html>

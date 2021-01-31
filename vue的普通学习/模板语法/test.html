@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>
+            {{msg.toUpperCase()}} 这里面的应该是表达式 
+            <a v-bind:href="url" v-on:click="test"></a> 
+            <!-- v-bind 强制数据绑定 也可以省略前面的v-bind 只写: -->
+            <!-- v-on:name 用于绑定事件监听 可以省略v-on: 只写@name-->
+        </h2>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'jian',
+                url:'http:'
+            },
+            methods: {
+                test(){
+
+                }
+            },
+        })
+        /*
+        1.表达式不是一个完整的结构  需要和其他的配合才能正常存在 而语句可以独立存在的
+        2.表达式有返回值 ，语句不会有返回值 数据代理
+        */
+    </script>
+</body>
+</html>

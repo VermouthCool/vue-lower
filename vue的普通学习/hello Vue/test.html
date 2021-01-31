@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        指令：以v-开头 自定义的标签属性
+        插值：{{}}动态显示数据 只能写在标签的内容里面
+        数据绑定：
+        单向的 从data流到模板
+        vue可以做到双向绑定 不知可以如此还可以反流回来
+        mvvm：
+        M:modal 指的是模板
+        v:指的是视图
+        vm指的是视图模型
+        页面改变的时候通过DOM监听 数据流到data
+        data改变通过数据绑定流向视图
+     -->
+     <div id="test">
+         <input type="text" v-model="msg">
+         <p>hello {{msg}}</p>
+    </div>
+     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+     <script>
+         new Vue({ //配置对象  属性名是一些特定的名称
+             el:"#test", //写上选择器  用于指定模板的根元素
+             data:{ //为模板提供数据
+                 msg:'建哥'
+             }
+         })
+     </script>
+</body>
+</html>

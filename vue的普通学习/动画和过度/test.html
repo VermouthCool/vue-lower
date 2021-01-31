@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <button @click="isShow=!isShow"></button>
+        <transition name="jian">
+            <p v-show="isShow"></p>
+        </transition>
+   </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+   <script>
+       /*
+       enter:
+        opacity:0 -> 1
+        xxx-enter -> xxx-enter-active -> xxx-enter-to
+       out:
+        opacity:1 ->0
+        xxx-leave -> xxx-leave-active -> xxx-leave-to
+        xxx是transtion的name属性 
+        直接写最后的时候的样式
+        xxx-leave-to,xxx-enter最后出现的样式会自动复位
+        动画类似
+       */
+   </script>
+</body>
+</html>

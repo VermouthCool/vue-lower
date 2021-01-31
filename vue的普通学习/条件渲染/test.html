@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.v-if:
+        v-else 会删除该元素重复创建元素
+        v-show 使用display：none
+     -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <div id="root">
+        <p v-if="ok">表白</p>
+        <p v-else="true">吧</p> 
+        <p v-show="ok">表白</p>
+        <p v-show="!ok">吧</p>
+        <button @click='ok=!ok'></button>
+    </div>
+    <script>
+        /*
+
+        */
+       new Vue({
+           el:'#root',
+         data() {
+             return {
+                 ok:true
+             }
+         },  
+       })
+    </script>
+</body>
+</html>

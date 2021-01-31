@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <div id="root">
+        <ul>
+            <li v-for="(p, index) in jian" :key="p.id"></li>
+            <li v-for="(value, key) in jian[1]" :key="key"></li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:'#root',
+            data() {
+                return {
+                    jian:[
+                        {id:'1',}
+                    ]
+                }
+            },
+        })
+        /*
+        vue如何监听数据变化
+        1对象中的属性数据
+            给属性添加setter方法
+        2.数组的元素变化
+            重写数组的一系列可以改变数组的方法
+            pop push ...
+            调用原生数组的对应方法 对元素处理 更新界面
+        */
+    </script>
+</body>
+</html>
